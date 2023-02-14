@@ -1,3 +1,4 @@
+import { PostProvider } from "@/context/postsContext";
 import "./globals.css";
 
 export default function RootLayout({
@@ -13,7 +14,11 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <div className="h-full">{children}</div>
+        <div className="h-full">
+          <PostProvider>
+          {children}
+          </PostProvider>
+          </div>
       </body>
     </html>
   );
