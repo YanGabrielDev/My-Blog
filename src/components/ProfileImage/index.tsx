@@ -13,7 +13,7 @@ const relaway = Raleway({
 export const ProfileImage = ({image}: ProfileImageProps) => {
 
   return (
-    <div className={`relative bottom-40 text-center flex flex-col items-center`}>
+    <div className={`relative bottom-20 text-center flex flex-col items-center`}>
     <div
       className={`h-[150px] w-[150px]  rounded-full bg-black flex justify-center items-center`}
     >
