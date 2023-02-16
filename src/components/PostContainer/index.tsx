@@ -10,13 +10,14 @@ export const PostContainer = ({prev, titlee}: PostContainerProps) => {
     useEffect(() => {
     update('teste')
     }, [])
-   console.log(title)
     return(
+        <>
         <div className={`post-container w-full sm:w-9/12 rounded-2xl 
-        bg-[#2B2A2A] px-4 m-0 sm:m-auto my-0 mb-4`}>   
-         <p className="p-2 text-white text-2xl">{titlee}</p>
-         <hr/>
+        bg-transparent mb-8`}>   
+         <p className="p-2 text-blue-500 text-2xl hover:underline">{titlee}</p>
+
          <p className="p-2 text-white text-lg">{prev}</p>
         </div>
+         </>
     )
 }
