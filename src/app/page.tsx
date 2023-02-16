@@ -12,6 +12,7 @@ import { usePostsContext } from '../context/postsContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const {title} = usePostsContext()
   const callPosts = async () => {
     const response = fetch('/api/posts')
     const data = (await response).json()
@@ -28,6 +29,8 @@ export default function Home() {
     <Wallpaper image={wallpaperImage} />
     <ProfileImage image={profileImage}/>
     </div>
+    <PostContainer titlee={title} prev='Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iure placeat soluta libero vel, pariatur quidem officiis quas expedita dignissimos beatae inventore praesentium quia deserunt earum quae recusandae obcaecati voluptatem.
+'/>
     <PostContainer titlee='Title' prev='Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iure placeat soluta libero vel, pariatur quidem officiis quas expedita dignissimos beatae inventore praesentium quia deserunt earum quae recusandae obcaecati voluptatem.
 '/>
    </Content>
