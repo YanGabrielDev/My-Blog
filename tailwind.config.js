@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -9,7 +10,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    // colors:{
+    // opacityBlack: '0,0,0,0.8'
+    // },
+    extend: {
+      accentColor:{
+        opacityBlack: '0,0,0,0.8'
+      }
+    },
   },
   plugins: [],
 }
