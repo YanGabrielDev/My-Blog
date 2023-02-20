@@ -1,4 +1,4 @@
-import { PostProvider } from "@/context/postsContext";
+import { PostProvider } from "@/context/PostContext/postsContext";
 import "./globals.css";
 
 export default function RootLayout({
