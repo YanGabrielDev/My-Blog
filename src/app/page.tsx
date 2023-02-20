@@ -33,15 +33,10 @@ export default function Home() {
     <Wallpaper image={wallpaperImage} />
     <ProfileImage image={profileImage}/>
     </div>
-    {title.map((post:any) => {
-      return (
-        <>
-        <PostContainer title={post.title} 
-        prev={post.post}/>
-    </>
-      )
-    })}
- 
+    <PostContainer title={'teste'} prev='Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iure placeat soluta libero vel, pariatur quidem officiis quas expedita dignissimos beatae inventore praesentium quia deserunt earum quae recusandae obcaecati voluptatem.
+'/>
+    <PostContainer title='Title' prev='Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iure placeat soluta libero vel, pariatur quidem officiis quas expedita dignissimos beatae inventore praesentium quia deserunt earum quae recusandae obcaecati voluptatem.
+'/>
    </Content>
     )
 }
