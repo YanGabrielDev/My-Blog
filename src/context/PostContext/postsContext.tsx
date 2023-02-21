@@ -1,26 +1,27 @@
 "use client"
+import { Posts } from "@/interfaces/postsInterface";
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 interface PostContext{
-    title: any,
-    update: (c: any) => void
+    posts: Array<Posts>,
+    update: (c: Array<Posts>) => void
 }
 
 interface PostProvider{
     children: ReactNode
 }
 const PostContext = createContext<PostContext>({
-      title: [],
-      update: (c) => ''
+      posts: [],
+      update: () => []
 })
 
 export const PostProvider =  ({children}: PostProvider) => {
 
-    const [title, setTitle] = useState('')
-    const update = (c: any) => {
-        setTitle(c)
+    const [posts, setPosts] = useState<Array<Posts>>([])
+    const update = (c: Array<Posts>) => {
+        setPosts(c)
     }
     return(
-        <PostContext.Provider value={{title, update}}>{children}</PostContext.Provider>
+        <PostContext.Provider value={{posts, update}}>{children}</PostContext.Provider>
     )
 }
 export const usePostsContext = () => useContext(PostContext)
