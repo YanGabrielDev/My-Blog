@@ -10,7 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        <div className="h-full">
+        <div className="h-screen">
           <PostProvider>
           {children}
           </PostProvider>
