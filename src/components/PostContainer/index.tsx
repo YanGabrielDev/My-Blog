@@ -1,17 +1,26 @@
-interface PostContainerProps{
-    title: string,
-    prev: string
-}
-export const PostContainer = ({prev, title}: PostContainerProps) => {
+import Link from "next/link";
 
-    return(
-        <>
-        <div className={`post-container w-full sm:w-9/12 rounded-2xl 
-        bg-transparent mb-8`}>   
-         <p className="p-2 text-blue-500 text-2xl hover:underline">{title}</p>
-
-         <p className="p-2 text-white text-lg">{prev}</p>
-        </div>
-         </>
-    )
+interface PostContainerProps {
+  title: string;
+  prev: string;
+  onClick: () => void;
 }
+export const PostContainer = ({ prev, title, onClick }: PostContainerProps) => {
+  return (
+    <>
+      <div
+        className={`post-container w-full sm:w-9/12 rounded-2xl 
+        bg-transparent mb-8`}
+      >
+        <Link
+          href={{ pathname: "/post", query: { title: title } }}
+          className="p-2 text-blue-500 text-2xl hover:underline"
+          onClick={onClick}
+        >
+          {title}
+        </Link>
+        <p className="p-2 text-white text-lg">{prev}</p>
+      </div>
+    </>
+  );
+};
