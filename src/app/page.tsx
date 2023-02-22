@@ -7,13 +7,11 @@ import { ProfileImage } from "@/components/ProfileImage";
 import { PostContainer } from "@/components/PostContainer";
 import { useEffect, useState } from "react";
 import { usePostsContext } from "../context/PostContext/postsContext";
-import logo from "../../public/assets/icons/logo.svg";
-import Image from "next/image";
 import { Loader } from "@/components/Loader";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const { update, posts } = usePostsContext();
+  const { update, posts, showSelectPost, selectedPost } = usePostsContext();
   const callPosts = async () => {
     setIsLoading(true)
     const response = fetch("/api/posts", {
@@ -32,11 +30,11 @@ export default function Home() {
       console.error(error)
     }
   }, []);
+  console.log(selectedPost)
   return (
     <>
     <Content>
       <div className="flex flex-col items-center">
-        {/* <Image src={logo} alt="logo"/> */}
         <Wallpaper image={wallpaperImage} />
         <ProfileImage image={profileImage} />
       </div>
@@ -44,7 +42,7 @@ export default function Home() {
       {posts.map((post) => {
         return (
           <>
-            <PostContainer key={post.id} title={post.title} prev={post.post} />
+            <PostContainer key={post.id} title={post.title} prev={post.post} onClick={() => showSelectPost(post)} />
           </>
         );
       })}
