@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 import { PostProvider } from "@/context/PostContext/postsContext";
 import "./globals.css";
 
@@ -10,7 +11,8 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
-        <div className="h-screen">
+          <Header/>
+        <div className="h-full">
           <PostProvider>
           {children}
           </PostProvider>
