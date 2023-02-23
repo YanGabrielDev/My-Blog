@@ -5,6 +5,6 @@ interface ContentProps {
 }
 export const Content = ({ children }: ContentProps) => {
   return (
-    <div className={`max-w-5xl h-full d-flex m-auto my-0 px-[10px]`}>{children}</div>
+    <main className={`max-w-5xl h-full d-flex m-auto my-0 px-[10px]`}>{children}</main>
   );
 };
