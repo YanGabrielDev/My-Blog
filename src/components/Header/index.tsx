@@ -6,7 +6,7 @@ import { useRouter} from 'next/navigation'
 export const Header = () => {
     const route = useRouter()
     return(
-        <header className={`w-full bg-opacity-60 bg-black h-10 fixed z-20 flex justify-between items-center px-4`}>
+        <header className={`w-full bg-opacity-60 bg-black h-12 fixed z-20 flex justify-between items-center px-6`}>
             <div>
               <Image alt='logo' src={logo} className='h-7 w-7'/>
             </div>
