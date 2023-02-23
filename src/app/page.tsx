@@ -5,6 +5,7 @@ import wallpaperImage from "../../public/images/wallpaper.jpg";
 import profileImage from "../../public/images/profile.jpeg";
 import { ProfileImage } from "@/components/ProfileImage";
 import { PostContainer } from "@/components/PostContainer";
+import {Header} from "@/components/Header";
 import { useEffect, useState } from "react";
 import { usePostsContext } from "../context/PostContext/postsContext";
 import { Loader } from "@/components/Loader";
@@ -30,7 +31,6 @@ export default function Home() {
       console.error(error)
     }
   }, []);
-  console.log(selectedPost)
   return (
     <>
     <Content>
