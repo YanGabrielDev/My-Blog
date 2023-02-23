@@ -6,6 +6,7 @@ export default function Post (){
     const {selectedPost} = usePostsContext()
     const {id, post, title} = selectedPost
     const brakline = post.split('\n')
+    console.log('teste em produção:',selectedPost)
     return(
         <Content>
             <div className="flex items-center w-full h-full flex-col pt-32">
