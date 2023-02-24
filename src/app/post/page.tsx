@@ -1,5 +1,4 @@
 "use client"
-
 import { Content } from "@/components/content"
 import {usePostsContext} from '../../context/PostContext/postsContext'
 export default function Post (){

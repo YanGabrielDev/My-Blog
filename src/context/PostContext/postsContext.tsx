@@ -31,7 +31,7 @@ export const PostProvider =  ({children}: PostProvider) => {
     }
 
     const showSelectPost = (c: Posts) => {
-        setSelectedPost(c)
+        setSelectedPost((c) => c)
     }
     return(
         <PostContext.Provider value={{posts, update, showSelectPost, selectedPost}}>{children}</PostContext.Provider>
