@@ -9,6 +9,7 @@ import {Header} from "@/components/Header";
 import { useEffect, useState } from "react";
 import { usePostsContext } from "../context/PostContext/postsContext";
 import { Loader } from "@/components/Loader";
+import Link from "next/link";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -42,6 +43,7 @@ export default function Home() {
       {posts.map((post) => {
         return (
           <>
+          <Link  href={{ pathname: "/post"}} onClick={() =>{ showSelectPost(post), console.log(post)}} >teste</Link>
             <PostContainer key={post.id} title={post.title} prev={post.post} onClick={() =>{ showSelectPost(post), console.log(post)}} />
           </>
         );

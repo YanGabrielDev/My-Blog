@@ -13,7 +13,7 @@ export const PostContainer = ({ prev, title, onClick }: PostContainerProps) => {
         bg-transparent mb-8`}
       >
         <Link
-          href={{ pathname: "/post", query: { title: title } }}
+          href={{ pathname: "/post"}}
           className="p-2 text-blue-500 text-2xl hover:underline"
           onClick={onClick}
         >
