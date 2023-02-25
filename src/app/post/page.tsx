@@ -1,8 +1,9 @@
 "use client"
 import { Content } from "@/components/content"
-import {usePostsContext} from '../../context/PostContext/postsContext'
+import { useContext } from "react"
+import {PostContext} from '../../context/PostContext/postsContext'
 export default function Post (){
-    const {selectedPost} = usePostsContext()
+    const {selectedPost} = useContext(PostContext)
     const {id, post, title} = selectedPost
     const brakline = post.split('\n')
     console.log('teste em produção:',selectedPost)

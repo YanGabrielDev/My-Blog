@@ -11,7 +11,7 @@ interface PostContext{
 interface PostProvider{
     children: ReactNode
 }
-const PostContext = createContext<PostContext>({
+export const PostContext = createContext<PostContext>({
       posts: [],
       update: () => [],
       showSelectPost: () => [],
