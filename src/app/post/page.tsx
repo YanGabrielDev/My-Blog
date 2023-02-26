@@ -1,12 +1,10 @@
 "use client"
 import { Content } from "@/components/content"
-import { useContext, useEffect, useState } from "react"
-import {PostContext} from '../../context/PostContext/postsContext'
+import {useEffect, useState } from "react"
 import {useSearchParams } from "next/navigation"
 import {Posts} from '../../interfaces/postsInterface'
 export default function Post (){
     const {get} = useSearchParams()
-    const {selectedPost} = useContext(PostContext)
     const bodyId = get('id')
     const [post, setPost] = useState<Array<Posts>>();
 
