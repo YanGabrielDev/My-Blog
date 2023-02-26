@@ -15,12 +15,12 @@ export default function Post (){
        const api = fetch(`/api/onePost?id=${bodyId}`, {method: 'POST'})
        const response = api.then((res) => res.json())
        const data = response.then((d) => setPosts(d))
+       console.log(data);
     }
 
     useEffect(() => {
         try{
             callPost()
-            console.log(posts);
             
         } catch (error) {
             console.error(error);
