@@ -18,6 +18,7 @@ export default function Home() {
     setIsLoading(true)
     const response = fetch("/api/posts", {
       next: {
+        
         revalidate: 60,
       },
     });
@@ -43,8 +44,8 @@ export default function Home() {
       {posts.map((post) => {
         return (
           <>
-          <Link  href={{ pathname: "/post"}} onClick={() =>{ showSelectPost(post), console.log(post)}} >teste</Link>
-            <PostContainer key={post.id} title={post.title} prev={post.post} onClick={() =>{ showSelectPost(post), console.log(post)}} />
+          <Link  href={{ pathname: "/post", query: {id: post.id}}} onClick={() =>{ showSelectPost(post)}} >teste</Link>
+            <PostContainer key={post.id} title={post.title} prev={post.post} onClick={() =>{ showSelectPost(post)}} />
           </>
         );
       })}
