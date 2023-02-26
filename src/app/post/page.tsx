@@ -14,8 +14,8 @@ export default function Post (){
     const callPost = async () => {
        const api = fetch(`/api/onePost?id=${bodyId}`, {method: 'POST'})
        const response = api.then((res) => res.json())
-       const data = response.then((d) => setPosts(d))
-       console.log(data);
+       const data = response.then((d) => console.log(d))
+      
     }
 
     useEffect(() => {
