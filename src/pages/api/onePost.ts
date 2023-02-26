@@ -12,10 +12,8 @@ export default async function onePost(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { body, method, query} = req;
+  const { method, query} = req;
   const id = query.id;
-  const data: Partial<Post> = body;
-console.log('meu id',id);
 
   try {
       if( method === 'POST'){
