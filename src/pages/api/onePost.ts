@@ -12,11 +12,13 @@ export default async function onePost(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { body, method } = req;
-  const id: string | undefined = body?.id;
+  const { body, method, query} = req;
+  const id = query.id;
   const data: Partial<Post> = body;
+console.log('meu id',id);
 
   try {
+      if( method === 'POST'){
         const snapshot = await Posts.get();
         const posts = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -24,6 +26,7 @@ export default async function onePost(
         }));
         const post = posts.filter((p) => p.id === id)
         res.send(post);
+      }
     }
    catch (error) {
     console.error(error),

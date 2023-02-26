@@ -8,21 +8,15 @@ export default function Post (){
     const {selectedPost} = useContext(PostContext)
     const {id, post, title} = selectedPost
     const brakline = post.split('\n')
-    
+    const bodyId = get('id')
     const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    fetch('/api/onePost', {
-        method: 'POST',
-        body: JSON.stringify({ id: 'lT7BLfvYmisKFGALcDlY' }), 
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-  }, []);
+    useEffect(() => {
+        fetch(`/api/onePost?id=lT7BLfvYmisKFGALcDlY`, {method: 'POST'})
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+      }, []);
     
     return(
         <Content>
