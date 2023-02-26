@@ -11,12 +11,21 @@ export default function Post (){
     const bodyId = get('id')
     const [posts, setPosts] = useState([]);
 
+    const callPost = async () => {
+       const api = fetch(`/api/onePost?id=${bodyId}`, {method: 'POST'})
+       const response = api.then((res) => res.json())
+       const data = response.then((d) => setPosts(d))
+    }
+
     useEffect(() => {
-        fetch(`/api/onePost?id=lT7BLfvYmisKFGALcDlY`, {method: 'POST'})
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error(error));
-      }, []);
+        try{
+            callPost()
+            console.log(posts);
+            
+        } catch (error) {
+            console.error(error);
+        }
+      }, [bodyId]);
     
     return(
         <Content>
