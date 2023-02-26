@@ -31,7 +31,7 @@ export default function Post() {
 
   return (
     <Content>
-      <div className="flex items-center w-full h-full flex-col pt-32">
+      <div className="w-full h-full pt-32">
         {isLoading && <Loader />}
         {post?.map((post: Posts, index) => {
           return (
@@ -42,9 +42,11 @@ export default function Post() {
               {post.post.split("\n").map((line) => {
                 return (
                   <>
+                  <div>
                     <span className="text-white mt-4" key={index}>
                       {line}
                     </span>
+                  </div>
                   </>
                 );
               })}
