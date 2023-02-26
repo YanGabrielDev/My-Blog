@@ -2,22 +2,21 @@
 import { Content } from "@/components/content"
 import { useContext, useEffect, useState } from "react"
 import {PostContext} from '../../context/PostContext/postsContext'
-import { useRouter, useSearchParams } from "next/navigation"
+import {useSearchParams } from "next/navigation"
+import {Posts} from '../../interfaces/postsInterface'
 export default function Post (){
     const {get} = useSearchParams()
     const {selectedPost} = useContext(PostContext)
-    const {id, post, title} = selectedPost
-    const brakline = post.split('\n')
     const bodyId = get('id')
-    const [posts, setPosts] = useState([]);
+    const [post, setPost] = useState<Array<Posts>>();
 
     const callPost = async () => {
        const response = await fetch(`/api/onePost?id=${bodyId}`, {method: 'POST'})
        const data = response.json()
-       const post = data.then(p => setPosts(p))
+       const post = data.then(p => setPost(p))
        return post
     }
-   console.log('meu state:',posts);
+   console.log('meu state:',post);
    
     useEffect(() => {
         try{
@@ -30,12 +29,12 @@ export default function Post (){
     return(
         <Content>
             <div className="flex items-center w-full h-full flex-col pt-32">
-            <h1 className="text-blue-500 text-2xl">{title}</h1>
             <div>
-            {brakline.map((line, index) => {
+            {post?.map((post:Posts, index) => {
                 return(
                     <>
-                    <span className="text-white mt-4" key={index}>{line}</span>
+                    <h1 className="text-blue-500 text-2xl">{post.title}</h1>
+                    <span className="text-white mt-4" key={index}>{post.post.split('\n')}</span>
                     </>
                 )
             })}
