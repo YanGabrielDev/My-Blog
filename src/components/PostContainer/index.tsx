@@ -4,8 +4,9 @@ interface PostContainerProps {
   title: string;
   prev: string;
   onClick: () => void;
+  query: string
 }
-export const PostContainer = ({ prev, title, onClick }: PostContainerProps) => {
+export const PostContainer = ({ prev, title, onClick, query}: PostContainerProps) => {
   return (
     <>
       <div
@@ -13,7 +14,7 @@ export const PostContainer = ({ prev, title, onClick }: PostContainerProps) => {
         bg-transparent mb-8`}
       >
         <Link
-          href={{ pathname: "/post"}}
+          href={{ pathname: "/post", query: {id: query}}}
           className="p-2 text-blue-500 text-2xl hover:underline"
           onClick={onClick}
         >
