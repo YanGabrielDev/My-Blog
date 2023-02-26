@@ -44,8 +44,7 @@ export default function Home() {
       {posts.map((post) => {
         return (
           <>
-          <Link  href={{ pathname: "/post", query: {id: post.id}}} onClick={() =>{ showSelectPost(post)}} >teste</Link>
-            <PostContainer key={post.id} title={post.title} prev={post.post} onClick={() =>{ showSelectPost(post)}} />
+            <PostContainer key={post.id} title={post.title} prev={post.post} onClick={() =>{ showSelectPost(post)}} query={post.id} />
           </>
         );
       })}
