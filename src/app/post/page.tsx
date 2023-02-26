@@ -25,7 +25,7 @@ export default function Post (){
         } catch (error) {
             console.error(error);
         }
-      }, [bodyId]);
+      }, []);
     
     return(
         <Content>
