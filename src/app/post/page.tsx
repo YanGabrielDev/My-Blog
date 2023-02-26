@@ -12,10 +12,10 @@ export default function Post (){
     const [posts, setPosts] = useState([]);
 
     const callPost = async () => {
-       const api = fetch(`/api/onePost?id=${bodyId}`, {method: 'POST'})
-       const response = api.then((res) => res.json())
-       const data = response.then((d) => console.log(d))
-      
+       const response = fetch(`/api/onePost?id=${bodyId}`, {method: 'POST'})
+       const data = (await response).json()
+       const post = data.then(p => console.log(p))
+       return post
     }
 
     useEffect(() => {
