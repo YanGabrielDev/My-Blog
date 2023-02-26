@@ -5,15 +5,13 @@ import wallpaperImage from "../../public/images/wallpaper.jpg";
 import profileImage from "../../public/images/profile.jpeg";
 import { ProfileImage } from "@/components/ProfileImage";
 import { PostContainer } from "@/components/PostContainer";
-import {Header} from "@/components/Header";
 import { useEffect, useState } from "react";
 import { usePostsContext } from "../context/PostContext/postsContext";
 import { Loader } from "@/components/Loader";
-import Link from "next/link";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const { update, posts, showSelectPost, selectedPost } = usePostsContext();
+  const { update, posts, showSelectPost} = usePostsContext();
   const callPosts = async () => {
     setIsLoading(true)
     const response = fetch("/api/posts", {
@@ -30,6 +28,7 @@ export default function Home() {
     try{
       callPosts();
     } catch(error){
+      
       console.error(error)
     }
   }, []);

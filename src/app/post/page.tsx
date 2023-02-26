@@ -20,7 +20,6 @@ export default function Post() {
     setIsLoading(false);
     return post;
   };
-  console.log("meu state:", post);
 
   useEffect(() => {
     try {
@@ -33,19 +32,25 @@ export default function Post() {
   return (
     <Content>
       <div className="flex items-center w-full h-full flex-col pt-32">
-        <div>
-            {isLoading && <Loader/>}
-          {post?.map((post: Posts, index) => {
-            return (
-              <>
+        {isLoading && <Loader />}
+        {post?.map((post: Posts, index) => {
+          return (
+            <>
+              <div className="flex items-center flex-col">
                 <h1 className="text-blue-500 text-2xl">{post.title}</h1>
-                <span className="text-white mt-4" key={index}>
-                  {post.post.split("\n")}
-                </span>
-              </>
-            );
-          })}
-        </div>
+              </div>
+              {post.post.split("\n").map((line) => {
+                return (
+                  <>
+                    <span className="text-white mt-4" key={index}>
+                      {line}
+                    </span>
+                  </>
+                );
+              })}
+            </>
+          );
+        })}
       </div>
     </Content>
   );
