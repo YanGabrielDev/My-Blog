@@ -39,7 +39,7 @@ export default function Post() {
               <div className="flex items-center flex-col">
                 <h1 className="text-blue-500 text-2xl">{post.title}</h1>
               </div>
-              <div>
+              <div className="flex flex-col w-[70%] mx-0 my-auto">
               {post.post.split("\n").map((line) => {
                 return (
                   <>
