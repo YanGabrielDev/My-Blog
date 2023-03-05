@@ -15,7 +15,7 @@ export const PostContext = createContext<PostContext>({
       posts: [],
       update: () => [],
       showSelectPost: () => [],
-      selectedPost: {id: '', post: '', title: ''}
+      selectedPost: {id: '', post: '', title: '', preview: ''}
 
 
 })
@@ -24,7 +24,7 @@ export const PostProvider =  ({children}: PostProvider) => {
 
     const [posts, setPosts] = useState<Array<Posts>>([])
     const [selectedPost, setSelectedPost] = useState<Posts>({
-        id: '', post: '', title: ''
+        id: '', post: '', title: '', preview: ''
     })
     const update = (c: Array<Posts>) => {
         setPosts(c)
