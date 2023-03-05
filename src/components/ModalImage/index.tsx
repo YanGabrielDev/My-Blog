@@ -10,10 +10,10 @@ interface ModalImageProps {
 export const ModalImage = ({ image, alt, close }: ModalImageProps) => {
   return (
     <div
-      className={`fixed w-full h-full bg-opacity-80 bg-black flex justify-center items-center z-10 top-0 left-0`}
+      className={`fixed w-full h-full bg-opacity-80 bg-black flex justify-center items-center z-30 top-0 left-0`}
     >
-      <Image alt={alt} src={image} className="max-w-xl"/>
+      <Image alt={alt} src={image} className="max-w-md"/>
       <ButtonIcon icon={closeIcon} altIcon='close' onClick={() => close()} className="top-2 right-4 absolute"/>
     </div>
   );
-};
+}

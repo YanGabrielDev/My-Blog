@@ -7,6 +7,7 @@ interface Post {
   id: string;
   title: string;
   post: string;
+  preview: string
 }
 export default async function sendPosts(
   req: NextApiRequest,
