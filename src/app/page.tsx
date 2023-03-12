@@ -43,7 +43,7 @@ export default function Home() {
       {posts.map((post) => {
         return (
           <>
-            <PostContainer key={post.id} title={post.title} prev={post.preview} onClick={() =>{ showSelectPost(post)}} query={post.id} />
+            <PostContainer key={post.id} title={post.title} prev={post.preview} query={post.id} />
           </>
         );
       })}

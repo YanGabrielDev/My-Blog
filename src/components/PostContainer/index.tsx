@@ -3,7 +3,7 @@ import Link from "next/link";
 interface PostContainerProps {
   title: string;
   prev: string;
-  onClick: () => void;
+  onClick?: () => void;
   query: string
 }
 export const PostContainer = ({ prev, title, onClick, query}: PostContainerProps) => {
