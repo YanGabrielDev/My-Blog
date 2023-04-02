@@ -11,7 +11,7 @@ export const Wallpaper = ({ image }: WallpaperProps) => {
   const onClose = () => setOpenModal(false);
 
   return (
-    <div className="w-full h-48 overflow-hidden relative mt-12 rounded-[14px]">
+    <div className="w-full h-56 overflow-hidden relative mt-12 rounded-[14px]">
       <Image
         src={image}
         alt="forest"
