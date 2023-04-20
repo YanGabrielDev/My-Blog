@@ -31,7 +31,7 @@ export default function Post() {
 
   return (
     <Content>
-      <div className="w-full h-full pt-32">
+      <div className="w-full h-full pt-24">
         {isLoading && <Loader />}
         {post?.map((post: Posts, index) => {
           return (
