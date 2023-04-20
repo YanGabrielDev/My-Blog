@@ -15,12 +15,15 @@ export const PostContainer = ({ prev, title, onClick, query}: PostContainerProps
       >
         <Link
           href={{ pathname: "/post", query: {id: query}}}
-          className="p-2 pb-0 text-blue-500 text-xl hover:underline"
+          className="p-2 text-blue-500 text-2xl hover:underline"
           onClick={onClick}
+          style={{
+            lineHeight: "0px"
+          }}
         >
           <h2>{title}</h2>
         </Link>
-        <p className="p-2 pt-0 text-white text-lg">{prev}</p>
+        <p className="p-2 text-white text-lg">{prev}</p>
       </div>
     </>
   );
