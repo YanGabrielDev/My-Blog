@@ -8,10 +8,12 @@ import { PostContainer } from "@/components/PostContainer";
 import { useEffect, useState } from "react";
 import { usePostsContext } from "../context/PostContext/postsContext";
 import { Loader } from "@/components/Loader";
+import { LoadingWindow } from "@/components/LoadingWindow";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { update, posts, showSelectPost } = usePostsContext();
+  const { update, posts } = usePostsContext();
+
   const callPosts = async () => {
     setIsLoading(true);
     const response = fetch("/api/posts", {
@@ -30,30 +32,30 @@ export default function Home() {
       console.error(error);
     }
   }, []);
-  return (
-    <>
-      <Content>
-        <div className="flex flex-col">
-          <Wallpaper image={wallpaperImage}>
-            <ProfileImage image={profileImage} />
-          </Wallpaper>
-        </div>
-        {isLoading && <Loader />}
-        <div className="mt-12">
-          {posts.map((post) => {
-            return (
-              <>
-                <PostContainer
-                  key={post.id}
-                  title={post.title}
-                  prev={post.preview}
-                  query={post.id}
-                />
-              </>
-            );
-          })}
-        </div>
-      </Content>
-    </>
+
+  return isLoading ? (
+    <LoadingWindow />
+  ) : (
+    <Content>
+      <div className="flex flex-col">
+        <Wallpaper image={wallpaperImage}>
+          <ProfileImage image={profileImage} />
+        </Wallpaper>
+      </div>
+      <div className="mt-12">
+        {posts.map((post) => {
+          return (
+            <>
+              <PostContainer
+                key={post.id}
+                title={post.title}
+                prev={post.preview}
+                query={post.id}
+              />
+            </>
+          );
+        })}
+      </div>
+    </Content>
   );
 }
