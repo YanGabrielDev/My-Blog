@@ -15,7 +15,6 @@ export default function Home() {
   const { update, posts } = usePostsContext();
 
   const callPosts = async () => {
-    setIsLoading(true);
     const response = fetch("/api/posts", {
       next: {
         revalidate: 60,
@@ -27,8 +26,10 @@ export default function Home() {
   };
   useEffect(() => {
     try {
+      setIsLoading(true);
       callPosts();
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
     }
   }, []);
