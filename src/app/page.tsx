@@ -15,6 +15,7 @@ export default function Home() {
   const { update, posts } = usePostsContext();
 
   const callPosts = async () => {
+    setIsLoading(true);
     const response = fetch("/api/posts", {
       next: {
         revalidate: 60,
@@ -26,17 +27,13 @@ export default function Home() {
   };
   useEffect(() => {
     try {
-      setIsLoading(true);
       callPosts();
     } catch (error) {
-      setIsLoading(false);
       console.error(error);
     }
   }, []);
 
-  return isLoading ? (
-    <LoadingWindow />
-  ) : (
+  return (
     <Content>
       <div className="flex flex-col">
         <Wallpaper image={wallpaperImage}>
@@ -44,18 +41,22 @@ export default function Home() {
         </Wallpaper>
       </div>
       <div className="mt-12">
-        {posts.map((post) => {
-          return (
-            <>
-              <PostContainer
-                key={post.id}
-                title={post.title}
-                prev={post.preview}
-                query={post.id}
-              />
-            </>
-          );
-        })}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          posts.map((post) => {
+            return (
+              <>
+                <PostContainer
+                  key={post.id}
+                  title={post.title}
+                  prev={post.preview}
+                  query={post.id}
+                />
+              </>
+            );
+          })
+        )}
       </div>
     </Content>
   );
