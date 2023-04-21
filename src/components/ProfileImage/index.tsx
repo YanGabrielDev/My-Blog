@@ -17,7 +17,7 @@ export const ProfileImage = ({ image }: ProfileImageProps) => {
   
   return (
     <div
-      className={`relative bottom-40 ml-8 text-center sm:flex`}
+      className={`relative top-0 ml-8 text-center sm:flex `}
     >
       <div
         className={`h-[150px] w-[150px]  rounded-full bg-black flex justify-center items-center`}
