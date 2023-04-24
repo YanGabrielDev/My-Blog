@@ -12,7 +12,7 @@ export const Wallpaper = ({ image, children }: WallpaperProps) => {
   const onClose = () => setOpenModal(false);
 
   return (
-    <div className="w-full h-[14rem] overflow-hidden relative mt-14 rounded-[14px] flex flex-col justify-center">
+    <div className="w-full h-[15rem] overflow-hidden relative mt-14 rounded-[14px] flex flex-col justify-center">
       <Image
         src={image}
         alt="forest"
